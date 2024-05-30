@@ -1,4 +1,4 @@
-package org.dolibarr.base;
+package org.dolibarr.objectRepository;
 
 import org.openqa.selenium.WebDriver;
 
