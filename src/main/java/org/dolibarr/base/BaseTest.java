@@ -2,6 +2,7 @@ package org.dolibarr.base;
 
 import org.dolibarr.genericUtils.PropertyUtils;
 import org.dolibarr.objectRepository.LoginPage;
+import org.dolibarr.objectRepository.home.HomeDashboard;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -18,7 +19,7 @@ import java.time.Duration;
 public class BaseTest {
 
     protected WebDriver driver;
-    protected LoginPage loginPage;
+    protected HomeDashboard dashboard;
     protected PropertyUtils prop;
     @BeforeClass
     public void initializeDriver() throws IOException {
@@ -34,13 +35,13 @@ public class BaseTest {
     }
     @BeforeMethod(alwaysRun = true)
     public void launchApplication() throws IOException {
-        loginPage=new LoginPage(driver);
+        LoginPage loginPage=new LoginPage(driver);
         loginPage.goToLoginPage(prop.getValue("url"));
-        //loginPage.loginToApplication(prop.getProperty("username"), prop.getProperty("password") );
+        dashboard=loginPage.loginToApplication(prop.getValue("username"), prop.getValue("password") );
     }
     @AfterMethod(alwaysRun = true)
     public void logout(){
-        loginPage.logout();
+        dashboard.logout();
     }
     @AfterClass(alwaysRun = true)
     public void terminateBrowser(){
