@@ -50,7 +50,7 @@ public class NewMemberTypeForm extends MembersDashboard{
         super(driver);
     }
 
-    public void saveAllDetails(MemberType type){
+    public ListMemberTypes saveAllDetails(MemberType type){
         labelTextField.sendKeys(type.getLabel());
 
         selectStatus.click();
@@ -84,9 +84,13 @@ public class NewMemberTypeForm extends MembersDashboard{
         welcomeMail.sendKeys(type.getWelcomeMail());
 
         saveButton.click();
+
+        return new ListMemberTypes(driver);
     }
-    public void saveMandatoryDetails(String label){
+    public ListMemberTypes saveMandatoryDetails(String label){
         labelTextField.sendKeys(label);
         saveButton.click();
+
+        return new ListMemberTypes(driver);
     }
 }

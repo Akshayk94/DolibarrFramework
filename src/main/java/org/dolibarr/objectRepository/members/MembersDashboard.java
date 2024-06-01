@@ -24,7 +24,7 @@ public class MembersDashboard extends BasePage {
     }
     public ListMemberTypes getMemberTypesList(){
         listMemberTypeLink.click();
-        return new ListMemberTypes();
+        return new ListMemberTypes(driver);
     }
     public NewMemberForm getNewMemberForm(){
         newMemberLink.click();
