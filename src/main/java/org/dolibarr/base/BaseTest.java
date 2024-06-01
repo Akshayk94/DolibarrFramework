@@ -1,7 +1,7 @@
 package org.dolibarr.base;
 
 import org.dolibarr.genericUtils.PropertyUtils;
-import org.dolibarr.objectRepository.LoginPage;
+import org.dolibarr.objectRepository.PurchaseOrder.LoginPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -36,7 +36,7 @@ public class BaseTest {
     public void launchApplication() throws IOException {
         loginPage=new LoginPage(driver);
         loginPage.goToLoginPage(prop.getValue("url"));
-        //loginPage.loginToApplication(prop.getProperty("username"), prop.getProperty("password") );
+        loginPage.loginToApplication(prop.getValue("username"), prop.getValue("password") );
     }
     @AfterMethod(alwaysRun = true)
     public void logout(){
