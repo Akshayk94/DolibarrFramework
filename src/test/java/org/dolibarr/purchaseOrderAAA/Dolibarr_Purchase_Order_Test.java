@@ -1,7 +1,7 @@
-package org.dolibarr.purchaseOrder;
+package org.dolibarr.purchaseOrderAAA;
 
 import org.dolibarr.base.BaseTest;
-import org.dolibarr.objectRepository.PurchaseOrder.*;
+import org.dolibarr.objectRepository.PurchaseOrderAAAA.*;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;

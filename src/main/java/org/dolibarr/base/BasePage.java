@@ -1,8 +1,8 @@
 package org.dolibarr.base;
 
-import org.dolibarr.objectRepository.PurchaseOrder.CommerceDashboard;
-import org.dolibarr.objectRepository.PurchaseOrder.MembersDashboard;
-import org.dolibarr.objectRepository.PurchaseOrder.ThirdPartyDashboard;
+import org.dolibarr.objectRepository.PurchaseOrderAAAA.CommerceDashboard;
+import org.dolibarr.objectRepository.PurchaseOrderAAAA.MembersDashboard;
+import org.dolibarr.objectRepository.PurchaseOrderAAAA.ThirdPartyDashboard;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

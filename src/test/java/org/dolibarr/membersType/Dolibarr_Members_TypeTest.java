@@ -1,7 +1,7 @@
 package org.dolibarr.membersType;
 
 import org.dolibarr.base.BaseTest;
-import org.dolibarr.objectRepository.PurchaseOrder.HomeDashboard;
+import org.dolibarr.objectRepository.PurchaseOrderAAAA.HomeDashboard;
 
 public class Dolibarr_Members_TypeTest extends BaseTest {
     /*Verify that user is able to create new member type*/

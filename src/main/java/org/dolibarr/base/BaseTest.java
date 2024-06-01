@@ -1,7 +1,7 @@
 package org.dolibarr.base;
 
 import org.dolibarr.genericUtils.PropertyUtils;
-import org.dolibarr.objectRepository.PurchaseOrder.LoginPage;
+import org.dolibarr.objectRepository.PurchaseOrderAAAA.LoginPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
