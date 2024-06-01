@@ -1,7 +1,7 @@
-package org.dolibarr.purchaseOrderAAA;
+package org.dolibarr.purchaseOrder;
 
 import org.dolibarr.base.BaseTest;
-import org.dolibarr.objectRepository.PurchaseOrderAAAA.*;
+import org.dolibarr.objectRepository.PurchaseOrder.*;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
@@ -14,7 +14,7 @@ public class Dolibarr_Purchase_Order_Test extends BaseTest {
     public void createNewPurchaseOrder()
     {
 //        navigate to commerce dashboard
-        CommerceDashboard commerce = loginPage.goToCommerceDashboard();
+        CommerceDashboard commerce = dashboard.goToCommerceDashboard();
 
 //        navigate to purchase order list
         PurchaseOrderList purchaseOrderList = commerce.goToPurchaseOrderList() ;
@@ -34,7 +34,7 @@ public class Dolibarr_Purchase_Order_Test extends BaseTest {
     @Test
     public void  validatePurchaseOrder()
     {
-        CommerceDashboard commerceDashboard = loginPage.goToCommerceDashboard();
+        CommerceDashboard commerceDashboard = dashboard.goToCommerceDashboard();
          PurchaseOrderList purchaseOrderList = commerceDashboard.goToPurchaseOrderList() ;
          PurchaseOrder purchaseOrder =  purchaseOrderList.searchPurchaseOrder("(PROV26)");
 

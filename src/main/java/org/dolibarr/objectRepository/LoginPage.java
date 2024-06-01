@@ -1,6 +1,7 @@
-package org.dolibarr.objectRepository.PurchaseOrderAAAA;
+package org.dolibarr.objectRepository;
 
 import org.dolibarr.base.BasePage;
+import org.dolibarr.objectRepository.home.HomeDashboard;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
