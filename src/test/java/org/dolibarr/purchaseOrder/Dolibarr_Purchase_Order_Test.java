@@ -34,9 +34,10 @@ public class Dolibarr_Purchase_Order_Test extends BaseTest {
     @Test
     public void  validatePurchaseOrder()
     {
+        System.out.println("**********************************************************************************");
         CommerceDashboard commerceDashboard = dashboard.goToCommerceDashboard();
          PurchaseOrderList purchaseOrderList = commerceDashboard.goToPurchaseOrderList() ;
-         PurchaseOrder purchaseOrder =  purchaseOrderList.searchPurchaseOrder("(PROV26)");
+         PurchaseOrder purchaseOrder =  purchaseOrderList.searchPurchaseOrder("(PROV25)");
 
         List<Product> productList = new ArrayList<>();
         Product p1 = new Product("Product" , "Product 1") ;
