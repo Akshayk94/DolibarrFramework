@@ -1,4 +1,4 @@
-package org.dolibarr.objectRepository.PurchaseOrder;
+package org.dolibarr.objectRepository.commerce.PurchaseOrder;
 
 import org.dolibarr.base.BasePage;
 import org.dolibarr.objectRepository.members.NewMemberTypeForm;

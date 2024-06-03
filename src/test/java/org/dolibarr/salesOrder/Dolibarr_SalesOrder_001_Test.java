@@ -2,6 +2,7 @@ package org.dolibarr.salesOrder;
 
 import org.dolibarr.base.BaseTest;
 import org.dolibarr.objectRepository.*;
+import org.dolibarr.objectRepository.commerce.CommerceDashboard;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -9,7 +10,7 @@ public class Dolibarr_SalesOrder_001_Test extends BaseTest {
 
     @Test(threadPoolSize = 5000)
     public void createDraftSalesOrderTest(){
-        HomeDashboard dashboard=loginPage.loginToApplication(prop.getValue("username"), prop.getValue("password") );
+//        HomeDashboard dashboard=loginPage.loginToApplication(prop.getValue("username"), prop.getValue("password") );
         CommerceDashboard commerceOrderDashBoard=dashboard.goToCommerceDashboard();
         NewSalesOrderPage newSalesOrderPage=commerceOrderDashBoard.clickNewSalesOrder();
 

@@ -37,7 +37,6 @@ public class BaseTest {
     public void launchApplication() throws IOException {
         LoginPage loginPage=new LoginPage(driver);
         loginPage.goToLoginPage(prop.getValue("url"));
-        loginPage.loginToApplication(prop.getValue("username"), prop.getValue("password") );
         dashboard=loginPage.loginToApplication(prop.getValue("username"), prop.getValue("password") );
 
     }

@@ -1,4 +1,4 @@
-package org.dolibarr.objectRepository.PurchaseOrder;
+package org.dolibarr.objectRepository.commerce.PurchaseOrder;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

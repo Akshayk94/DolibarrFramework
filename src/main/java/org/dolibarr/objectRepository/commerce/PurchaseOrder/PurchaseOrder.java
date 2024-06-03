@@ -1,4 +1,4 @@
-package org.dolibarr.objectRepository.PurchaseOrder;
+package org.dolibarr.objectRepository.commerce.PurchaseOrder;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,6 +9,15 @@ import java.util.List;
 public class PurchaseOrder extends PurchaseOrderDashboard {
     public PurchaseOrder(WebDriver driver) {
         super(driver);
+    }
+
+
+    @FindBy(xpath = "//div[@class='statusref']/span")
+    private WebElement purchaseOrderStatus;
+
+
+    public String getPurchaseOrderStatus(){
+        return purchaseOrderStatus.getText() ;
     }
 
 
@@ -66,8 +75,6 @@ public class PurchaseOrder extends PurchaseOrderDashboard {
     @FindBy(xpath = "//a[normalize-space()='Back to list']")
     private WebElement backToListText;
 
-    @FindBy(xpath = "//a[@class='butActionDelete']")
-    private WebElement deleteBtn ;
 
     @FindBy(xpath = "//span[@id='select2-select_type-container']")
     private WebElement freeTextItemTypeDropdown;
@@ -122,6 +129,66 @@ public class PurchaseOrder extends PurchaseOrderDashboard {
     {
         addLineItem(productList);
         validateAndApproveBtn.click();
+        popupYes.click();
+    }
+
+    @FindBy(xpath = "//a[normalize-space()='Make order']")
+    private WebElement makeOrderBtn ;
+
+    @FindBy(xpath = "//span[@id='select2-methodecommande-container']")
+    private WebElement orderMethodDropdown ;
+
+    public void selectOrderMethod(String orderMethod)
+    {
+        orderMethodDropdown.click();
+        dropdownSearchBox.sendKeys(orderMethod);
+        dropDownFirstElements.click();
+    }
+
+    @FindBy(xpath = "//input[@name='makeorder']")
+    private WebElement makeOrderBtn2 ;
+
+    public void makeOrder(String orderMethod)
+    {
+        makeOrderBtn.click();
+        selectOrderMethod(orderMethod);
+        makeOrderBtn2.click();
+        popupYes.click();
+
+    }
+
+    @FindBy(xpath = "//a[normalize-space()='Classify Received']")
+    private WebElement classifyReceivedBtn ;
+
+    @FindBy(xpath = "//span[@id='select2-type-container']")
+    private WebElement deliveryDropdown ;
+
+
+    public void selectDeliveryType(String delivery)
+    {
+        deliveryDropdown.click();
+        dropdownSearchBox.sendKeys(delivery);
+        dropDownFirstElements.click();
+    }
+
+
+    @FindBy(xpath = "//input[@name='receive']")
+    private WebElement receiveBtn ;
+
+    public void classifyOrderReceived(String delivery)
+    {
+        classifyReceivedBtn.click();
+        selectDeliveryType(delivery );
+        receiveBtn.click();
+
+    }
+
+    @FindBy(xpath = "//a[@class='butActionDelete']")
+    private WebElement deleteBtn ;
+
+    public void deletePurchaseOrder()
+    {
+        deleteBtn.click();
         popupYes.click();
     }
 

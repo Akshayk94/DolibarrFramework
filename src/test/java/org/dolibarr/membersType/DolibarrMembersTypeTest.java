@@ -1,7 +1,7 @@
 package org.dolibarr.membersType;
 
 import org.dolibarr.base.BaseTest;
-import org.dolibarr.objectRepository.PurchaseOrder.MembersDashboard;
+import org.dolibarr.objectRepository.commerce.PurchaseOrder.MembersDashboard;
 import org.dolibarr.objectRepository.members.MemberType;
 import org.dolibarr.objectRepository.members.NewMemberTypeForm;
 import org.testng.annotations.Test;

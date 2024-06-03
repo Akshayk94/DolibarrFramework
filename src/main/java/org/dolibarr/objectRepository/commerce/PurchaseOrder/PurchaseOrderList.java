@@ -1,5 +1,6 @@
-package org.dolibarr.objectRepository.PurchaseOrder;
+package org.dolibarr.objectRepository.commerce.PurchaseOrder;
 
+import org.dolibarr.objectRepository.commerce.CommerceDashboard;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

@@ -1,7 +1,9 @@
 package org.dolibarr.purchaseOrder;
 
 import org.dolibarr.base.BaseTest;
-import org.dolibarr.objectRepository.PurchaseOrder.*;
+import org.dolibarr.objectRepository.commerce.CommerceDashboard;
+import org.dolibarr.objectRepository.commerce.PurchaseOrder.*;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
@@ -28,17 +30,52 @@ public class Dolibarr_Purchase_Order_Test extends BaseTest {
         ord.setDateOfDelivery("06/10/2024");
 
 //        creating a new purchase order as draft
-        createPurchaseOrder.createDraftPurchaseOrder(ord);
+        PurchaseOrder purchaseOrder = createPurchaseOrder.createDraftPurchaseOrder(ord);
+
+        Assert.assertEquals( purchaseOrder.getPurchaseOrderStatus()  , "Draft (needs to be validated)");
+
     }
 
+
+//    .............................................................................................................................................................................
+
+    @Test
+    public void updatePurchaseOrder()
+    {
+//        navigate to commerce dashboard
+        CommerceDashboard commerceDashboard = dashboard.goToCommerceDashboard();
+//        navigate to purchase order list
+        PurchaseOrderList purchaseOrderList = commerceDashboard.goToPurchaseOrderList() ;
+//        search purchase order and goto purchase order
+        PurchaseOrder purchaseOrder =  purchaseOrderList.searchPurchaseOrder("(PROV25)");
+
+        purchaseOrder.setPaymentTerms("");
+        purchaseOrder.setDateOfDelivery("");
+        purchaseOrder.setEditPaymentMethod("");
+
+    }
+
+
+//    .............................................................................................................................................................................
+
+
+
+/*
+    this method is used validate the purchase Order
+    ,it is first searched from the list of purchase order
+    , then added the products in it and validated
+*/
     @Test
     public void  validatePurchaseOrder()
     {
-        System.out.println("**********************************************************************************");
+//        navigate to commerce dashboard
         CommerceDashboard commerceDashboard = dashboard.goToCommerceDashboard();
-         PurchaseOrderList purchaseOrderList = commerceDashboard.goToPurchaseOrderList() ;
-         PurchaseOrder purchaseOrder =  purchaseOrderList.searchPurchaseOrder("(PROV25)");
+//        navigate to purchase order list
+        PurchaseOrderList purchaseOrderList = commerceDashboard.goToPurchaseOrderList() ;
+//        search purchase order and goto purchase order
+        PurchaseOrder purchaseOrder =  purchaseOrderList.searchPurchaseOrder("(PROV25)");
 
+//       storing multiple products in listr
         List<Product> productList = new ArrayList<>();
         Product p1 = new Product("Product" , "Product 1") ;
         Product p2 = new Product("Product" , "Product 2") ;
@@ -47,7 +84,75 @@ public class Dolibarr_Purchase_Order_Test extends BaseTest {
         productList.add(p2);
         productList.add(p3) ;
 
+//      validating purchase order
          purchaseOrder.validatePurchaseOrder(productList);
+        Assert.assertEquals( purchaseOrder.getPurchaseOrderStatus()  , "Approved");
     }
+
+
+//    .............................................................................................................................................................................
+
+
+    /*
+    this method is to place order
+    after validating a draft purchase order, it is converted into order
+ */
+    public void makeOrder()
+    {
+//        navigate to commerce dashboard
+        CommerceDashboard commerceDashboard = dashboard.goToCommerceDashboard();
+//        navigate to purchase order list
+        PurchaseOrderList purchaseOrderList = commerceDashboard.goToPurchaseOrderList() ;
+//        search purchase order and goto purchase order
+        PurchaseOrder purchaseOrder =  purchaseOrderList.searchPurchaseOrder("(PROV25)");
+
+        purchaseOrder.makeOrder("Email");
+        Assert.assertEquals( purchaseOrder.getPurchaseOrderStatus()  , "Ordered - Standby reception");
+
+    }
+
+//    .............................................................................................................................................................................
+
+/*
+    this method is used to classify order
+    after placing order, we have to classify order
+ */
+
+    public void classifyOrder()
+    {
+//        navigate to commerce dashboard
+        CommerceDashboard commerceDashboard = dashboard.goToCommerceDashboard();
+//        navigate to purchase order list
+        PurchaseOrderList purchaseOrderList = commerceDashboard.goToPurchaseOrderList() ;
+//        search purchase order and goto purchase order
+        PurchaseOrder purchaseOrder =  purchaseOrderList.searchPurchaseOrder("(PROV25)");
+        String delivery = "";
+        purchaseOrder.classifyOrderReceived(delivery);
+        Assert.assertTrue( purchaseOrder.getPurchaseOrderStatus().contains(delivery));
+
+    }
+
+//    .............................................................................................................................................................................
+
+/*    this method ic use to
+      delete the purchase order
+*/
+    public void deletePurchaseOrder()
+    {
+//        navigate to commerce dashboard
+        CommerceDashboard commerceDashboard = dashboard.goToCommerceDashboard() ;
+
+//        naviagte to purchase order list
+        PurchaseOrderList purchaseOrderList = commerceDashboard.goToPurchaseOrderList() ;
+
+//        search purchase order and goto purchase order
+        PurchaseOrder purchaseOrder =  purchaseOrderList.searchPurchaseOrder("(PROV25)") ;
+
+//        delete purchase order
+        purchaseOrder.deletePurchaseOrder();
+
+    }
+
+//.............................................................................................................................................................................
 
 }
