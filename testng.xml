@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd"><suite name="All Test Suite"><test verbose="2" preserve-order="true" name="C:/Users/chetan/Desktop/Dolibarr/DolibarrFramework/src/test/java/org/dolibarr/salesOrder/Dolibarr_SalesOrder_001_Test.java"><classes><class name="org.dolibarr.salesOrder.Dolibarr_SalesOrder_001_Test"><methods><include name="createDraftSalesOrderTest"/></methods></class></classes></test></suite>

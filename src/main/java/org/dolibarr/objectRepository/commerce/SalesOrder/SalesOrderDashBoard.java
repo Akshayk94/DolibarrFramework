@@ -1,6 +1,6 @@
-package org.dolibarr.objectRepository;
+package org.dolibarr.objectRepository.commerce.SalesOrder;
 
-import org.dolibarr.base.BasePage;
+import org.dolibarr.objectRepository.commerce.CommerceDashboard;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,6 +13,8 @@ public class SalesOrderDashBoard extends CommerceDashboard {
     @FindBy(xpath = "//div[@class='menu_contenu menu_contenu_commande_list']//a[text()='List']")
     WebElement listLink;
 
+    @FindBy(xpath = "//div[@class='menu_contenu menu_contenu_commande_list']//a[text()='List']")
+    WebElement salesOrderListLink;
 
 
     public SalesOrderDashBoard(WebDriver driver) {

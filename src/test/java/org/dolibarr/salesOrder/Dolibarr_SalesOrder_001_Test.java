@@ -1,15 +1,17 @@
 package org.dolibarr.salesOrder;
 
 import org.dolibarr.base.BaseTest;
-import org.dolibarr.objectRepository.*;
+import org.dolibarr.objectRepository.commerce.CommerceDashboard;
+import org.dolibarr.objectRepository.commerce.SalesOrder.NewSalesOrderPage;
+import org.dolibarr.objectRepository.commerce.SalesOrder.SalesOrderList;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class Dolibarr_SalesOrder_001_Test extends BaseTest {
 
-    @Test(threadPoolSize = 5000)
+    @Test(threadPoolSize = 1500)
     public void createDraftSalesOrderTest(){
-        HomeDashboard dashboard=loginPage.loginToApplication(prop.getValue("username"), prop.getValue("password") );
+
         CommerceDashboard commerceOrderDashBoard=dashboard.goToCommerceDashboard();
         NewSalesOrderPage newSalesOrderPage=commerceOrderDashBoard.clickNewSalesOrder();
 
@@ -19,10 +21,8 @@ public class Dolibarr_SalesOrder_001_Test extends BaseTest {
 
         newSalesOrderPage.clickOnCalendarImg();
         newSalesOrderPage.selectPlannedDateYearDropDown();
-        newSalesOrderPage.selectPlannedYear("2025");
-        newSalesOrderPage.selectPlannedDateMonthDropDown();
-        newSalesOrderPage.selectPlannedDateMonth("Jan");
-        newSalesOrderPage.selectPlannedDate("21");
+        newSalesOrderPage.selectPlannedYear("2025","Jan","21");
+
 
         newSalesOrderPage.selectAvailableDelay();
         newSalesOrderPage.selectAvailableDelayOption("5 days");

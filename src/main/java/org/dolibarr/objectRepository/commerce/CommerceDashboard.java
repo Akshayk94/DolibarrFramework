@@ -1,6 +1,9 @@
 package org.dolibarr.objectRepository.commerce;
 
 import org.dolibarr.base.BasePage;
+import org.dolibarr.objectRepository.commerce.SalesOrder.NewSalesOrderPage;
+import org.dolibarr.objectRepository.commerce.SalesOrder.SalesOrderDashBoard;
+import org.dolibarr.objectRepository.commerce.SalesOrder.SalesOrderList;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

@@ -1,4 +1,4 @@
-package org.dolibarr.objectRepository;
+package org.dolibarr.objectRepository.commerce.SalesOrder;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -74,31 +74,27 @@ public class NewSalesOrderPage extends SalesOrderDashBoard{
     }
 
     public void selectPlannedDateYearDropDown(){
-        plannedDateYearDropDown.click();
+
     }
 
-    public void selectPlannedYear(String year){
+    public void selectPlannedYear(String year,String month,String date){
+        plannedDateYearDropDown.click();
         //Ex. year=2025 then 2025-1924=101 but 2025 is present at 102 index so +1
         plannedDateYear=By.xpath("//select[@class='ui-datepicker-year']//option");
         List<WebElement> years=driver.findElements(plannedDateYear);
         int actualYear=Integer.parseInt(year);
         actualYear=((actualYear-1924));
         years.get(actualYear).click();
-    }
 
-    public void selectPlannedDateMonthDropDown(){
         plannedDateMonthDropDown.click();
-    }
-
-    public void selectPlannedDateMonth(String month){
         Select select=new Select(plannedDateMonthDropDown);
         select.selectByVisibleText(month);
-    }
 
-    public void selectPlannedDate(String date){
         plannedDateDate=By.xpath("//table[@class='ui-datepicker-calendar']//tbody//tr//td//a[text()='"+date+"']");
         driver.findElement(plannedDateDate).click();
     }
+
+
 
     public void selectAvailableDelay(){
         availableDelayTextField.click();

@@ -1,6 +1,5 @@
-package org.dolibarr.objectRepository;
+package org.dolibarr.objectRepository.commerce.SalesOrder;
 
-import org.dolibarr.base.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
